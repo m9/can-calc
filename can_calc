@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+require 'byebug'
+require 'awesome_print'
+require 'pry'
+require 'tty-prompt'
+
+require_relative 'lib/streams/oinp/oinp_employer_job_offer'
+
+prompt = TTY::Prompt.new
+
+choice = prompt.select("Immigration Stream", cycle: true) do |menu|
+  menu.enum '.'
+
+  menu.choice 'OINP Employer Job Offer: Foreign Worker stream', :oinp_job_offer
+  menu.choice 'Other', :other
+end
+
+case choice
+when :oinp_job_offer
+  OINP::EmployerJobOffer.new
+when :other
+else
+  puts 'wat?'
+end
