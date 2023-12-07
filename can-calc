@@ -1,8 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'byebug'
-require 'awesome_print'
-require 'pry'
 require 'tty-prompt'
 
 require_relative 'lib/streams/oinp/oinp_employer_job_offer'
@@ -19,7 +16,6 @@ end
 case choice
 when :oinp_job_offer
   OINP::EmployerJobOffer.new
-when :other
 else
-  puts 'wat?'
+  puts 'Thanks. Bye.'
 end
